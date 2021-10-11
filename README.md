@@ -76,5 +76,6 @@ Here are some of the label instances:
 | 20 | pothole | 133,13,252 |
 
 ## Usage
-
-
+```
+python3 conversion.py --data-dir /workspace/Mapillary/MKU/kitti/labels/0/best_images/ --new-dir=/workspace/Mapillary/MKU/new_kitti/labels/0 --config=Mapillary-Kitti-MIX.csv
+```

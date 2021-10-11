@@ -7,4 +7,6 @@ docker run \
             -v /datasets/Mapillary/mapillary-vistas-dataset_public_v1.1:/workspace/Mapillary \
             -v /home/karmanov_aa/Resnet_OC:/workspace/Resnet_OC \
             -v /home/karmanov_aa/semantic-segmentation:/workspace/ss \
+            -v /home/karmanov_aa/Mapillary-Kitti360-United:/workspace/Mapillary-Kitti360-United \
+            --name conversion\
             resnet_oc
