@@ -1,4 +1,4 @@
-# Mapillary-Kitti360-United
+# Uniting Datasets
 This repository consists scripts for converting Mapillary and Kitti 360 to the same class space and the scripts to use it. 
 
  - Link to [KITTI-360 dataset](http://www.cvlibs.net/datasets/kitti-360/).
