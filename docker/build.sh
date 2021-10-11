@@ -1,1 +1,1 @@
-docker build -t resnet_oc .
+docker build -t conversion .

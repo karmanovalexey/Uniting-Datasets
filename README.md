@@ -1,11 +1,36 @@
-# Mapillary-Kitti360-United
-This repository consists scripts for converting Mapillary and Kitti 360 to the same class space and the scripts to use it. 
+# Uniting-Datasets
+This repository consists scripts for converting Datasets to the same class space and the scripts to use it. 
 
  - Link to [KITTI-360 dataset](http://www.cvlibs.net/datasets/kitti-360/).
  - Link to [Mapillary Vistas dataset](https://www.mapillary.com/dataset/vistas).
  - [HRNet](https://github.com/NVIDIA/semantic-segmentation) model used for labeling raw KITTI-360 to get Mapillary classes.
 
 ---
+## How to use
+### Prerequisites
+ - Download weights for hrnet-ocr model (rattlesnake) from [here](https://drive.google.com/drive/folders/1fs-uLzXvmsISbS635eRZCc5uzQdBIZ_U) and place them in ```ss/seg_weights``` directory
+ - Use docker to install dependencies
+ - Navigate to docker/ and run ```sh build.sh```
+ - Change paths to datasets in ```start.sh```
+ - Run ```sh start.sh```
+### Convert your images to Mapillary class format
+To go through the first stage of conversion you need to launch inference of Mappilary trained model on your data:
+ - Firstly, change necessary paths in ```scripts/dump_folder.yml``` file, do not change the dataset type
+```
+> python -m runx.runx scripts/dump_folder.yml -i
+```
+### Config description
+
+### Convert images from Mapillary space to the requested
+```
+python3 conversion.py --data-dir /workspace/DIR/WITH/MAPILLARY/CLASSED/IMAGES --new-dir=/workspace/DIR/TO/SAVE/NEW/SPACE --config=config.csv
+```
+### Correction 
+If you want to correct the images you got by using your GT, please go through ```correction.ipynb``` notebook. You need to change:
+ - data_dir. What to correct
+ - support_dir. GT folder
+ - new_dir. Where to save new data
+Then click through the whole notebook
 ## Description of resulting dataset
 Resulting dataset consists of 94251 instances. KITTI-360 part: 76251 of them are labelled automatically and organized in sequences. 18000 are mapillary manual annotations with no temporal order. 
 ### Data organization
@@ -74,8 +99,3 @@ Here are some of the label instances:
 | 18 | ego_vehicle | 20,0,87 |
 | 19 | road_marking_crosswalk | 214,255,249 |
 | 20 | pothole | 133,13,252 |
-
-## Usage
-```
-python3 conversion.py --data-dir /workspace/Mapillary/MKU/kitti/labels/0/best_images/ --new-dir=/workspace/Mapillary/MKU/new_kitti/labels/0 --config=Mapillary-Kitti-MIX.csv
-```
