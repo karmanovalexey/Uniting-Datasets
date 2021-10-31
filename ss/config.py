@@ -84,7 +84,7 @@ __C.DATASET.CENTROID_ROOT = \
 #SDC Augmented Cityscapes Dir Location
 __C.DATASET.CITYSCAPES_AUG_DIR = ''
 #Mapillary Dataset Dir Location
-__C.DATASET.MAPILLARY_DIR = os.path.join(__C.ASSETS_PATH, 'data/Mapillary/data')
+__C.DATASET.MAPILLARY_DIR = os.path.join('/workspace/UD/ss')
 #Kitti Dataset Dir Location
 __C.DATASET.KITTI_DIR = ''
 #SDC Augmented Kitti Dataset Dir Location
@@ -145,7 +145,7 @@ __C.MODEL.WRN41_CHECKPOINT = \
 __C.MODEL.X71_CHECKPOINT = \
     os.path.join(WEIGHTS_PATH, 'aligned_xception71.pth')
 __C.MODEL.HRNET_CHECKPOINT = \
-    os.path.join(WEIGHTS_PATH, 'hrnetv2_w48_imagenet_pretrained.pth')
+    os.path.join('/workspace/UD/ss/seg_weights/mapillary_ocrnet.HRNet_Mscale_fast-rattlesnake.pth')
 
 __C.LOSS = AttrDict()
 # Weight for OCR aux loss

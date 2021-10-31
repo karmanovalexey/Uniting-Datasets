@@ -16,6 +16,7 @@ This repository consists scripts for converting Mapillary and Kitti 360 to the s
 ### Convert your images to Mapillary class format
 To go through the first stage of conversion you need to launch inference of Mappilary trained model on your data:
 - Firstly, change necessary paths in ```scripts/dump_folder.yml``` file, do not change the dataset type
+- Go to ``UD/ss`` and run:
 ```
 > python -m runx.runx scripts/dump_folder.yml -i
 ```

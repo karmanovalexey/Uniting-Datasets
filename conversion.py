@@ -31,7 +31,6 @@ def main(args):
     palette = instruction['Palette'].dropna().tolist()
     palette = [list(map(int, i.split(':')[1].split('-'))) for i in palette]
     palette = [item for sublist in palette for item in sublist]
-
     #building correspondance dict to define relations between classes
     correspond = [(int(i[0]),int(i[1])) for i in list(zip(map_class, mku_class))]
 
@@ -51,7 +50,7 @@ def main(args):
         new_image.save(image_name, "PNG")
         
         #adjusting permissions
-        os.chmod(image_name, 666)
+        os.chmod(image_name, 775)
 
 if __name__ == '__main__':
     parser = ArgumentParser()

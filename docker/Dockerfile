@@ -18,5 +18,16 @@ RUN pip install --no-cache-dir ninja
 RUN apt-get update && apt-get install libgtk2.0-dev -y && rm -rf /var/lib/apt/lists/*
 
 # Install Apex
-RUN cd /workspace/ && git clone https://github.com/NVIDIA/apex.git apex && cd apex && python setup.py install --cuda_ext --cpp_ext
+# RUN cd /workspace/ && git clone https://github.com/NVIDIA/apex.git apex && cd apex && python setup.py install --cuda_ext --cpp_ext
+# WORKDIR /workspace/
+
+ARG USER=karmanov_aa
+ARG UID=1039
+ARG GID=1039
+# default password
+ARG PW=user
+
+RUN useradd -m ${USER} --uid=${UID} && echo "${USER}:${PW}" | chpasswd && adduser ${USER} sudo
 WORKDIR /workspace/
+RUN chown -R ${UID}:${GID} /workspace/
+USER ${UID}:${GID}
